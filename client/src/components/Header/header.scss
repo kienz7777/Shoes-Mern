@@ -1,0 +1,207 @@
+
+nav.desk-menu{
+    width: 100%;
+    height: 100%;
+    text-align: left;
+
+    & ul{
+        height: 100%;
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    & ul li.itemMenu{
+        position: relative;
+        display: inline-block;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 1.4;
+        padding: 0;
+        margin-right: 40px;
+        //height: 100%;
+
+        & .layer1{
+            display: inline-block;
+            //color: #fff;
+            text-decoration: none;
+            height: 100%;
+            padding-top: 15px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+
+            &:hover{
+                color: rgba(255, 186, 0, 0.9);
+            }
+        }
+    }
+
+    & ul li.itemMenu .menuCate{
+        position: relative;
+
+        &:hover .menuCate-popupCate{
+            display: block!important;
+        }
+
+        &-popupCate{
+            position: absolute;
+            transition: all 0.5s;
+            display: none; 
+            padding: 20px;
+            top: 25px;
+            left: -100px;
+            background-color: transparent;
+            transition: display 0.5s;
+            z-index: 2;
+
+            &-block{
+                display: flex;
+                width: 700px;
+                background-color:#fff;
+                padding: 30px 30px 40px;
+                box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.3), inset 0 0 0 1px #ffffff;
+
+                & col{
+                    display: inline-block;
+                }
+
+                & .cate-name{
+                    margin-bottom: 25px;
+
+                    & a{
+                        text-decoration: none;
+                    }
+
+                    & h4{
+                        color: #000;
+                        font-weight: 500!important;
+                        font-family: "Oswald",sans-serif!important;
+                    }
+                }
+
+                & .cate-item{
+                    display: flex;
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 300;
+                    flex-direction: column;
+
+                    & a{
+                        padding: 5px 0;
+                        transition: margin 0.5s;
+                        margin-left:0;
+                        text-decoration: none;
+
+                        &:hover{
+                            padding: 5px 0;
+                            color: rgb(255, 94, 0);
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+.logo-menu{
+    width: 30%;
+    line-height: 2.5;
+    text-align: center;
+
+    & a{
+        width: 100%;
+        height: 100%;
+        display: block;
+
+        & img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+}
+
+.icon{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    & ul{
+        list-style: none;
+        margin: 0;
+
+        & li{
+            display: inline-block;
+            margin-right: 30px;
+            position: relative;
+
+            & a{
+                display: inline-block;
+                width: 20px;
+                height: 100%;
+                transition: color 0.3s;
+
+                & img{
+                    width: 100%;
+                }
+            }
+
+            & span.count {
+                color: white;
+                top: -5px;
+                left: 13px;
+                font-size: 11px;
+                position: absolute;
+                background-color: black;
+                padding: 1px 6px;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    & ul li .search-form{
+        position: relative;
+
+        & input[type="search"]{
+            border: solid 1px #ccc;
+            width: 120px;
+            background: #ededed;
+            padding: 8px 35px 8px 15px;
+            border-radius: 20px;
+            transition: all .5s;
+            height: 80%;
+        }
+
+        & input[type="search"]:focus{
+            width: 220px;
+            background-color: #fff;
+            border-color: #1b1b1b;
+            outline: none;
+        }
+
+        & .search-icon{
+            right: 0;
+            position: absolute;
+            width: 18px;
+            right: 0px;
+            top: 73%;
+            transform: translate(-70%, -50%);
+        }
+    }
+
+}
+
+.transparent-bg{
+    background-color: transparent;
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    padding: 40px 0;
+}

@@ -1,15 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './header.css'
+import './header.scss'
 import { Container, Row, Col } from 'reactstrap';
 import { Link, NavLink } from "react-router-dom";
 
 
 function Header(props) {
+
+    // Bật popover CART
+    const toggleCart = (e) => {
+        // console.log(e.target.parentElement.id);
+        //setPopoverCart(!popoverCart);
+    }
+
     return (
-        <header>
+        <header id="header" className="transparent-bg">
             <Container>
                 <Row>
-                    <Col >
+                    <Col lg="5">
                         <nav className="desk-menu">
                             <ul>
                                 <li className="active itemMenu">
@@ -20,48 +27,48 @@ function Header(props) {
                                 </li>
 
                                 <li className="itemMenu">
-                                    <div className="menu-cate">
-                                        <a className="layer1" href="/" title="Home">
+                                    <div className="menuCate">
+                                        <a className="layer1" href="https://www.youtube.com/" title="Category">
                                             Categories
                                             <i className="fa fa-chevron-down dropdown" aria-hidden="true"></i>
                                         </a>
-                                        <div className="popup-cate">
-                                            <div className="block">
+                                        <div className="menuCate-popupCate">
+                                            <div className="menuCate-popupCate-block">
                                                 <Col>
                                                     <div className="cate-name">
-                                                        <a><h4>Nike</h4></a>
+                                                        <a href="https://www.youtube.com/"><h4>Nike</h4></a>
                                                     </div>
                                                     <div className="cate-item">
-                                                        <a>Newest sneakers</a>
-                                                        <a>Running</a>
-                                                        <a>Basketball</a>
-                                                        <a>Jordan</a>
-                                                        <a>Running</a>
+                                                        <a href="https://www.youtube.com/">Newest sneakers</a>
+                                                        <a href="https://www.youtube.com/">Running</a>
+                                                        <a href="https://www.youtube.com/">Basketball</a>
+                                                        <a href="https://www.youtube.com/">Jordan</a>
+                                                        <a href="https://www.youtube.com/">Running</a>
                                                     </div>
                                                 </Col>
                                                 <Col>
                                                     <div className="cate-name">
-                                                        <a><h4>Adidas</h4></a>
+                                                        <a href="https://www.youtube.com/"><h4>Adidas</h4></a>
                                                     </div>
                                                     <div className="cate-item">
-                                                        <a>Basic</a>
-                                                        <a>Ultraboost</a>
-                                                        <a>Superstar</a>
-                                                        <a>Stan Smith</a>
-                                                        <a>Pharell Williams</a>
-                                                        <a>TX8</a>
+                                                        <a href="https://www.youtube.com/">Basic</a>
+                                                        <a href="https://www.youtube.com/">Ultraboost</a>
+                                                        <a href="https://www.youtube.com/">Superstar</a>
+                                                        <a href="https://www.youtube.com/">Stan Smith</a>
+                                                        <a href="https://www.youtube.com/">Pharell Williams</a>
+                                                        <a href="https://www.youtube.com/">TX8</a>
                                                     </div>
                                                 </Col>
                                                 <Col>
                                                     <div className="cate-name">
-                                                        <a><h4>Baleciaga</h4></a>
+                                                        <a href="https://www.youtube.com/"><h4>Baleciaga</h4></a>
                                                     </div>
                                                     <div className="cate-item">
-                                                        <a>Tyrex Sneaker</a>
-                                                        <a>Track Sneaker</a>
-                                                        <a>Sandal</a>
-                                                        <a>Boot</a>
-                                                        <a>Speed Sneaker</a>
+                                                        <a href="https://www.youtube.com/">Tyrex Sneaker</a>
+                                                        <a href="https://www.youtube.com/">Track Sneaker</a>
+                                                        <a href="https://www.youtube.com/">Sandal</a>
+                                                        <a href="https://www.youtube.com/">Boot</a>
+                                                        <a href="https://www.youtube.com/">Speed Sneaker</a>
                                                     </div>
                                                 </Col>
                                             </div>
@@ -70,13 +77,13 @@ function Header(props) {
                                 </li>
 
                                 <li className="itemMenu">
-                                    <a className="layer1" href="/" title="Home">
+                                    <a className="layer1" href="https://www.youtube.com/" title="Home">
                                         Blog
                                     </a>  
                                 </li>
                                 
                                 <li className="itemMenu">
-                                    <a className="layer1" href="/" title="Home">
+                                    <a className="layer1" href="https://www.youtube.com/" title="Home">
                                         Contact
                                     </a>
                                 </li>
@@ -84,6 +91,104 @@ function Header(props) {
                             </ul>
                         </nav>
                     </Col>
+
+                    <Col lg="2">
+                        <div className="logo-menu">
+                            <a href="https://www.youtube.com/">
+                                <img src="/Assets/images/nike-logo.png" alt="">
+
+                                </img>
+                            </a>
+                        </div>
+                    </Col>
+
+                    <Col lg="5">
+                        <nav className="icon">
+                            <ul>
+                                <li>
+                                    <form className="search-form" action='/search' method='GET'>
+                                        <input type="search" placeholder="Search" name="name"/>
+                                        <a className="search-icon" href="/search">
+                                            <img src="/Assets/images/search.png" alt="">
+                                            </img>
+                                        </a>
+                                    </form>
+                                </li>
+                                {/* {cookie.get('token') ? 
+                                    null :  
+                                    <li>
+                                    <a onClick={toggleLoginForm}>
+                                        <img src="/Assets/images/enter.png">
+                                        </img>
+                                    </a>
+                                    <Login
+                                        isOpen={modalLogin}
+                                        toggleLoginForm={toggleLoginForm}
+                                        toggleRegisterForm={toggleRegisterForm}
+                                        toggleForgetForm={toggleForgetForm}
+                                    />
+                                    <Register
+                                        isOpen={modalRegister}
+                                        toggleLoginForm={toggleLoginForm}
+                                        toggleRegisterForm={toggleRegisterForm}
+                                    />
+                                    <Forget
+                                        isOpen={modalForget}
+                                        toggleLoginForm={toggleLoginForm}
+                                        toggleForgetForm={toggleForgetForm}
+                                    />
+                                </li>
+                                } */}
+                                <li>
+                                    <a href="https://www.youtube.com/">
+                                        <img src="/Assets/images/heart.png" alt="">
+                                        </img>
+                                    </a>
+                                    <span className="count">0</span>
+                                </li>
+                                <li>
+                                    <div className="cart">
+                                        <a href="https://www.youtube.com/" id="cart-icon" onClick={(e)=>toggleCart(e)}>
+                                            <img src="/Assets/images/shopping-cart.png" alt="">
+                                            </img> 
+                                        </a>
+                                        {/* {popoverCart ? 
+                                        <MiniCart
+                                            wrapperRef = {wrapperRef}
+                                        /> 
+                                        : null} */}
+                                    </div>
+                                    <span className="count">
+                                        {/* <Count/> */}
+                                    </span>
+                                </li>
+                                {/* {cookie.get('token') ? 
+                                    <li>
+                                        <div className="user">
+                                            <a  id="user-icon" onClick={toggleUser}>
+                                                <img className="user-image" src={user.avatar ? user.avatar : '/Assets/images/user.jpg'}>
+                                                </img> 
+                                            </a>
+                                            {popoverUser ? 
+                                            <div ref={wrapperRef} className="popover-user">
+                                                <div className="content">
+                                                    <h6>My account</h6>
+                                                    <div className="link">
+                                                        <Link to="/profile"><i className="fa fa-cog"></i>Profile</Link>
+                                                        <a><i className="fa fa-lock"></i>Change password</a>
+                                                        <a onClick={()=>logout()}><i class="fa fa-sign-out"></i>Logout</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            : null}
+                                        </div>
+                                    </li> 
+                                : null}  */}
+                                
+                            </ul>
+                        </nav>
+                    </Col>
+
                 </Row>
             </Container>
         </header>
