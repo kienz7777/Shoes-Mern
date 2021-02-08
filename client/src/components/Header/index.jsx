@@ -16,7 +16,7 @@ function Header(props) {
         <header id="header" className="transparent-bg">
             <Container>
                 <Row>
-                    <Col lg="5">
+                    <Col lg="5" className="hidden-sm show-ham">
                         <nav className="desk-menu">
                             <ul>
                                 <li className="active itemMenu">
@@ -90,9 +90,33 @@ function Header(props) {
 
                             </ul>
                         </nav>
+
+                        
                     </Col>
 
-                    <Col lg="2">
+                    <Col xs="4"  className="menu-bar">
+                        <ul>
+                            <li>
+                                <Link >
+                                    <span class="bar">
+
+                                    </span>
+                                </Link>
+                            </li>
+                        </ul>
+                    </Col>
+
+                    <Col lg="2" xs="4" >
+                        {/* <ul>
+                            <li>
+                                <Link >
+                                    <span class="bar">
+
+                                    </span>
+                                </Link>
+                            </li>
+                        </ul> */}
+
                         <div className="logo-menu">
                             <a href="https://www.youtube.com/">
                                 <img src="/Assets/images/nike-logo.png" alt="">
@@ -102,10 +126,10 @@ function Header(props) {
                         </div>
                     </Col>
 
-                    <Col lg="5">
+                    <Col lg="5" xs="4">
                         <nav className="icon">
                             <ul>
-                                <li>
+                                <li className="search">
                                     <form className="search-form" action='/search' method='GET'>
                                         <input type="search" placeholder="Search" name="name"/>
                                         <a className="search-icon" href="/search">
@@ -141,7 +165,14 @@ function Header(props) {
                                 } */}
                                 <li>
                                     <a href="https://www.youtube.com/">
-                                        <img src="/Assets/images/heart.png" alt="">
+                                        <img src="/Assets/images/like.png" alt="">
+                                        </img>
+                                    </a>
+                                    <span className="count">0</span>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/">
+                                        <img src="/Assets/images/like.png" alt="">
                                         </img>
                                     </a>
                                     <span className="count">0</span>
@@ -149,7 +180,7 @@ function Header(props) {
                                 <li>
                                     <div className="cart">
                                         <a href="https://www.youtube.com/" id="cart-icon" onClick={(e)=>toggleCart(e)}>
-                                            <img src="/Assets/images/shopping-cart.png" alt="">
+                                            <img src="/Assets/images/cart.png" alt="">
                                             </img> 
                                         </a>
                                         {/* {popoverCart ? 
@@ -160,6 +191,7 @@ function Header(props) {
                                     </div>
                                     <span className="count">
                                         {/* <Count/> */}
+                                        0
                                     </span>
                                 </li>
                                 {/* {cookie.get('token') ? 

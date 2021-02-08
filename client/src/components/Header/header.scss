@@ -1,3 +1,4 @@
+@import "./mixin";
 
 nav.desk-menu{
     width: 100%;
@@ -106,11 +107,66 @@ nav.desk-menu{
 
 }
 
+.menu-bar{
+    display: none;
+    @include maxWidth(991px){
+        display: flex;
+    }
+
+    & ul{
+        list-style: none;
+        display: none;
+        @include maxWidth(991px){
+            display: block;
+        }
+    }
+
+    & li a .bar{
+        opacity: 0;
+        visibility: hidden;
+        
+        position: relative;
+        display: block;
+        background: black;
+        width: 16px;
+        height: 1px;
+        top: 20px;
+
+        @include maxWidth(991px){
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    
+    & li a .bar::before{
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 5px;
+        width: 16px;
+        height: 1px;
+        background: #000;
+    }
+    
+    & li a .bar::after{
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 5px;
+        width: 16px;
+        height: 1px;
+        background: #000;
+    }
+
+
+}
+
 
 .logo-menu{
-    width: 30%;
+    width: 50%;
     line-height: 2.5;
     text-align: center;
+    margin: auto;
 
     & a{
         width: 100%;
@@ -138,8 +194,16 @@ nav.desk-menu{
 
         & li{
             display: inline-block;
-            margin-right: 30px;
+            margin-left: 30px;
             position: relative;
+
+            @include maxWidth(576px){
+                margin-left: 16px;
+            }
+
+            @include betweenWidth(320px,410px){
+                margin-left: 13px;
+            }
 
             & a{
                 display: inline-block;
@@ -149,6 +213,10 @@ nav.desk-menu{
 
                 & img{
                     width: 100%;
+                }
+
+                @include betweenWidth(320px,410px){
+                    width: 13px;
                 }
             }
 
@@ -161,7 +229,18 @@ nav.desk-menu{
                 background-color: black;
                 padding: 1px 6px;
                 border-radius: 50%;
+
+                @include maxWidth(576px){
+                    left: 10px;
+                    top: 0px;
+                    font-size: 8px;
+                    position: absolute;
+                    background-color: black;
+                    padding: 0px 4px;
+                }
             }
+
+
         }
     }
 
@@ -190,8 +269,19 @@ nav.desk-menu{
             position: absolute;
             width: 18px;
             right: 0px;
-            top: 73%;
+            top: 65%;
             transform: translate(-70%, -50%);
+        }
+
+
+        @include maxWidth(991px){
+            display: none;
+        }
+    }
+
+    & ul li.search{
+        @include maxWidth(991px){
+            display: none;
         }
     }
 
@@ -204,4 +294,28 @@ nav.desk-menu{
     left: 0;
     right: 0;
     padding: 40px 0;
+    
+    @include maxWidth(991px){
+        padding: 15px 0;
+    }
 }
+
+
+
+@media screen and (max-width: 991px){
+
+
+    .hidden-sm {
+        display: none!important;
+    }
+    .hidden-xs {
+        display: none!important;
+    }
+    .hidden-md {
+        display: none!important;
+    }
+    .show-ham {
+        background-image: "../";
+    }
+}
+
