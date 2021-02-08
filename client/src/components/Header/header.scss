@@ -158,7 +158,17 @@ nav.desk-menu{
         background: #000;
     }
 
+    &:hover{
+        & li a .bar::before{
+            transition: .4s;
+            transform: translateY(5px) rotate( -45deg );
+        }
 
+        & li a .bar::after{
+            transition: .4s;
+            transform: translateY(-5px) rotate( 45deg );
+        }
+    }
 }
 
 
