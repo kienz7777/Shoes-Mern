@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './header.scss'
+import './header.scss';
 import { Container, Row, Col } from 'reactstrap';
 import { Link, NavLink } from "react-router-dom";
 
