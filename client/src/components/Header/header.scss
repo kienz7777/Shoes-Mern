@@ -32,6 +32,11 @@ nav.desk-menu{
             padding-top: 15px;
             text-transform: uppercase;
             transition: color 0.3s;
+            color: black;
+
+            & i{
+                margin-left: 5px;
+            }
 
             &:hover{
                 color: rgba(255, 186, 0, 0.9);
@@ -93,6 +98,7 @@ nav.desk-menu{
                         transition: margin 0.5s;
                         margin-left:0;
                         text-decoration: none;
+                        color: black;
 
                         &:hover{
                             padding: 5px 0;
@@ -261,7 +267,7 @@ nav.desk-menu{
             border: solid 1px #ccc;
             width: 120px;
             background: #ededed;
-            padding: 8px 35px 8px 15px;
+            padding: 6px 35px 6px 15px;
             border-radius: 20px;
             transition: all .5s;
             height: 80%;

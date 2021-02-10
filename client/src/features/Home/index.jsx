@@ -1,7 +1,7 @@
 import React from 'react';
 import Banner from '../../components/Banner';
 import Header from '../../components/Header';
-import './home.css';
+import './home.scss';
 
 function Home(props) {
     return (
