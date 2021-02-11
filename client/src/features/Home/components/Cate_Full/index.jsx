@@ -10,11 +10,11 @@ function Cate_Full(props) {
                 <Container>
                     <div className="cate-feature">
                         <div className="cate-main-image">
-                            <img src="/Assets/images/nike-logo.png">
+                            <img src="/Assets/images/nike-logo.png" alt="">
                             </img>
                         </div>
                         <div className="cate-title">
-                            <img src="/Assets/images/fromsunup.png" />
+                            <img src="/Assets/images/fromsunup.png" alt=""/>
                         </div>
                         <span className="cate-description">
                             <h6>
@@ -31,7 +31,7 @@ function Cate_Full(props) {
                             <Col lg="6" sm="12" className="coll">
                                 <div className="image-card">
                                     <div className="image-wrapper">
-                                        <img src="/Assets/images/trending1.jpg"/>
+                                        <img src="/Assets/images/trending1.jpg" alt=""/>
                                     </div>
                                     <div className="caption">
                                         <p>Nike Air Zoom SuperRep 2</p>
@@ -45,7 +45,7 @@ function Cate_Full(props) {
                             <Col lg="6" sm="12" className="coll">
                                 <div className="image-card">
                                     <div className="image-wrapper">
-                                        <img src="/Assets/images/trending2.jpg"/>
+                                        <img src="/Assets/images/trending2.jpg" alt=""/>
                                     </div>
                                     <div className="caption">
                                         <p>Jordan 'Why Not?' Zero.4</p>

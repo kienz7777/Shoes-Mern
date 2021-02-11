@@ -1,7 +1,7 @@
 import React from 'react';
 import Banner from '../../components/Banner';
 import Header from '../../components/Header';
-import Cate_Full from './components/Cate_Full';
+import Cate from './components/Cate_Full';
 import './home.scss';
 
 function Home(props) {
@@ -12,7 +12,7 @@ function Home(props) {
                 <Banner/>
             </div>
             
-            <Cate_Full/>
+            <Cate/>
         </div>
     );
 }
