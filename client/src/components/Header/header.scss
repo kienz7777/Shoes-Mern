@@ -214,11 +214,11 @@ nav.desk-menu{
             position: relative;
 
             @include maxWidth(576px){
-                margin-left: 16px;
+                margin-left: 15px;
             }
 
             @include betweenWidth(320px,410px){
-                margin-left: 13px;
+                margin-left: 12px;
             }
 
             & a{
