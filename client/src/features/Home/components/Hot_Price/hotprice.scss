@@ -1,0 +1,46 @@
+@import './../../../../mixin';
+
+.hot-product{
+    padding: 5% 5% 0% 5%;
+}
+
+.hot-title{
+    width: 100%;
+    position: relative;
+    text-align: center;
+
+    &::before{      
+        content: "";
+        display: block;
+        position: absolute;
+        background-color: #ccc;
+        height: 1px;
+        width: 36%;
+        top: 60%;
+
+    }
+
+    &::after{
+        content: "";
+        display: block;
+        position: absolute;
+        background-color: #ccc;
+        height: 1px;
+        width: 36%;
+        top: 60%;
+        right: 0;
+    }
+
+
+    &-image{
+        width: 10%;
+        margin: auto;
+        & img{
+            width: 100%;
+            height: 100%;
+        }
+
+    }
+    
+
+}
