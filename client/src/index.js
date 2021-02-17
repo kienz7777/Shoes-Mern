@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import BackToTop from './components/BackToTop';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <BackToTop />
   </React.StrictMode>,
   document.getElementById('root')
 );

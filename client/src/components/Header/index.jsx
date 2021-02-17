@@ -6,6 +6,26 @@ import { Link, NavLink } from "react-router-dom";
 
 function Header(props) {
 
+    const [showHeader, setShowHeader] = useState(false);
+
+    const handleShowHeader = () => {
+    // Nếu kéo qua vị trí 0 thì hiển thị header
+        if(window.scrollY > 0){
+            setShowHeader(true);
+        } else {
+            setShowHeader(false);
+        }
+    }
+
+    useEffect(() => {
+    // Hiển thị header khi scroll 
+        window.addEventListener("scroll",handleShowHeader,{ passive: true });
+        return () => {
+            window.removeEventListener("scroll", handleShowHeader);
+        };
+    },[showHeader]);
+
+
     // Bật popover CART
     const toggleCart = (e) => {
         // console.log(e.target.parentElement.id);
@@ -13,7 +33,7 @@ function Header(props) {
     }
 
     return (
-        <header id="header" className="transparent-bg">
+        <header id="header" className={showHeader ? "dark-bg" : "transparent-bg"}>
             <Container>
                 <Row>
                     <Col lg="5" className="hidden-sm show-ham">
@@ -98,7 +118,7 @@ function Header(props) {
                         <ul>
                             <li>
                                 <Link >
-                                    <span class="bar">
+                                    <span className="bar">
 
                                     </span>
                                 </Link>
