@@ -44,3 +44,23 @@
     
 
 }
+
+.hot-shoe{
+    margin-top: 20px;
+    .item{
+        padding: 15px;
+
+        @include maxWidth(768px){
+            padding: 7px;
+        }
+        @include maxWidth(576px){
+            padding: 3px;
+        }
+    }
+}
+
+.slick-next:before, .slick-prev:before {
+    opacity: 1;
+    color: #ff5e00;
+    font-size: 25px;
+}
