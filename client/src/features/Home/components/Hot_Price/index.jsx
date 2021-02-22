@@ -67,26 +67,6 @@ function Hot_Price(props) {
                 </div>
             </Container>
 
-            <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, nam suscipit ipsam soluta fugiat, sit, incidunt omnis vero inventore molestiae quasi totam modi ab? Ut eligendi incidunt ad eius voluptatibus.
-            </div>
         </div>
 
     );

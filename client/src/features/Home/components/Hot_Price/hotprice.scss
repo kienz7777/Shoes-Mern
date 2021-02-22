@@ -63,4 +63,8 @@
     opacity: 1;
     color: #ff5e00;
     font-size: 25px;
+
+    @include maxWidth(576px){
+        font-size: 18px;
+    }
 }
