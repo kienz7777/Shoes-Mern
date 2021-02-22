@@ -1,0 +1,166 @@
+@import './../../mixin';
+
+footer{
+    background-color: #f6f5f1;
+    margin-top: 70px;
+}
+
+.newletter{
+    padding-top: 50px;
+    padding-bottom: 15px;
+
+    &-title{
+        text-align: center;
+        margin-bottom: 40px;
+
+        & h3{
+            text-transform: uppercase;
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 15px;
+
+            @include maxWidth(768px){
+                font-size: 26px;
+            }
+            @include maxWidth(576px){
+                font-size: 21px;
+            }
+        }
+
+        & label{
+            font-size: 13px;
+            font-weight: 300;
+            font-family: "Poppins",sans-serif;
+            color: #000;
+
+            @include maxWidth(576px){
+                font-size: 11px;
+            }
+        }
+
+        @include maxWidth(576px){
+            margin-bottom: 20px;
+        }
+    }
+
+    &-content{
+        text-align: center;
+
+        &-frm-subscribe{
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+
+            & input{
+                position: relative;
+                padding: 15px 135px 15px 25px;
+                padding-right: 135px;
+                border-radius: 25px;
+                border: 1px solid #e1e1e1;
+                box-shadow: 0 1px 0 0 #fff;
+                color: black;
+                font-size: 12px;
+                background: #e9e8e2;
+                width: 100%;
+                font-weight: 400;
+                z-index: 1;
+
+                @include maxWidth(768px){
+                    padding: 10px;
+                    padding-left: 15px;
+                }
+                @include maxWidth(576px){
+                    padding: 5px;
+                    padding-left: 12px;
+                    font-size: 9px;
+                }
+            }
+
+            & a{
+                position: absolute;
+                border-radius: 25px;
+                right: 0;
+                z-index: 1;
+                line-height: 50px;
+
+                @include maxWidth(768px){
+                    position: absolute;
+                    border-radius: 25px;
+                    right: 0;
+                    z-index: 1;
+                    line-height: 37px;
+                    font-size: 12px;
+                    padding: 0px 20px;
+                }
+                @include maxWidth(576px){
+                    position: absolute;
+                    border-radius: 25px;
+                    right: 0;
+                    z-index: 1;
+                    line-height: 25px;
+                    font-size: 10px;
+                    padding: 0px 10px;
+                }
+            }
+
+            & input:focus{
+                background-color: #fff;
+                border-color: #1b1b1b;
+                outline: none;
+            }
+
+            @include maxWidth(768px){
+                max-width: 500px;
+            }
+            @include maxWidth(576px){
+                max-width: 300px;
+            }
+        }
+    }
+
+    @include maxWidth(576px){
+        padding-top: 35px;
+    }
+}
+
+.follow{
+    text-align: center;
+    padding-bottom: 30px;
+
+    &-link{
+        list-style: none;
+        text-align: center;
+
+        display: inline-block;
+
+        & li{
+            display: inline;
+            font-size: 18px;
+            width: 42px;
+            height: 42px;
+            margin: 0 11px;
+            line-height: 41px;
+            float: left;
+            border-radius: 50%;
+            color: #b6b6b6;
+            border: 1px solid #e1e1e1;
+
+            box-shadow: 0 1px 0 0 #fff;
+            transition: all .3s;
+
+            @include maxWidth(576px){
+                font-size: 11px;
+                width: 24px;
+                height: 24px;
+                margin: 0 9px;
+                line-height: 25px;
+            }
+        }
+
+        & li:hover{
+            border-color: #fff;
+            color: #000;
+            box-shadow: 6px 8px 30px 0px rgba(0, 0, 0, 0.1), inset 0 0 0 1px #ffffff;
+        }
+    }
+}
