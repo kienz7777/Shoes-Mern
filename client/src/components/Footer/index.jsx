@@ -33,7 +33,46 @@ function Footer(props) {
                         <li><a><i className="fa fa-instagram"></i></a></li>
                     </ul>
                 </div>
-          
+
+                <div className="corporate">
+                    <div className="corporate-inner">
+                        <Row>
+                            <Col>
+                                <div className="wrapper">
+                                    <div className="image">
+                                        <img src="/Assets/images/bg_icon1.png" alt="Icon"/>
+                                    </div>
+                                    <div className="text">
+                                        <h3>Free Delivery</h3>
+                                        <p>am liber tempor cum soluta nobis eleifend option congue.</p>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col>
+                                <div className="wrapper">
+                                    <div className="image">
+                                        <img src="/Assets/images/bg_icon2.png" alt="Icon"/>
+                                    </div>
+                                    <div className="text">
+                                        <h3>Money Guarantee</h3>
+                                        <p>am liber tempor cum soluta nobis eleifend option congue.</p>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col>
+                                <div className="wrapper">
+                                    <div className="image">
+                                        <img src="/Assets/images/bg_icon3.png" alt="Icon"/>
+                                    </div>
+                                    <div className="text">
+                                        <h3>Online Support</h3>
+                                        <p>am liber tempor cum soluta nobis eleifend option congue.</p>
+                                    </div>
+                                </div>
+                            </Col>
+                        </Row>
+                    </div>
+                </div>      
             </Container>
         </footer>
     );
