@@ -72,7 +72,71 @@ function Footer(props) {
                             </Col>
                         </Row>
                     </div>
-                </div>      
+                </div>
+
+                <div className="footer-top">
+                    <Row>
+                        <Col lg="4" xs="4">
+                            <a className="footer-top-logo"><img src="/Assets/images/nike-logo.png" alt="Logo"/></a>
+                            <p className="footer-top-des">We are a team of designers and developers that create high quality Magento, Prestashop, Opencart.</p>
+                            <ul className="footer-top-contact">
+                                <li className="address">
+                                    <i className="fa fa-map-marker"></i>
+                                    <p>Address : No 40 Baria Sreet 133/2, NewYork, USA.</p>
+                                </li>
+                                <li className="phone">
+                                    <i className="fa fa-phone"></i>
+                                    <p>Phone: +(1234) 567 890</p>
+                                </li>
+                                <li className="mail">
+                                    <i className="fa fa-envelope-o"></i>
+                                    <p>kienvu7777@gmail.com</p>
+                                </li>
+                            </ul>
+                        </Col>
+
+                        <Col lg="3" xs="3">
+                            <h5>Information</h5>
+                            <ul className="footer-top-information">
+                                <li><a>About Us</a></li>
+                                <li><a>Delivery Information</a></li>
+                                <li><a>Privacy Policy</a></li>
+                                <li><a>Term, Conditions</a></li>
+                                <li><a>Brands</a></li>
+                                <li><a>Gift Certificate</a></li>
+                            </ul>
+                        </Col>
+
+                        <Col lg="3" xs="3">
+                            <h5>Customer Service</h5>
+                            <ul className="footer-top-information">
+                                <li><a>Contact Us</a></li>
+                                <li><a>Returns</a></li>
+                                <li><a>Site Map</a></li>
+                                <li><a>Affiliate</a></li>
+                                <li><a>Specials</a></li>
+                                <li><a>Newletters</a></li>
+                            </ul>
+                        </Col>
+
+                        <Col lg="2" xs="2">
+                            <h5>Instagram</h5>
+                            <ul className="footer-top-information">
+                                <li>kzshoe7</li>
+                            </ul>
+                        </Col>
+
+                    </Row>
+                </div>
+
+                <div className="footer-bottom">
+                    <div className="footer-bottom-copyright">
+                        <p>Copyright © 2021 By Kienz. All Right Reserved.</p>
+                    </div>
+                    <div className="footer-bottom-payment">
+                        <img src="/Assets/images/payment.png" alt="Payment"/>
+                    </div>
+                </div>
             </Container>
         </footer>
     );
