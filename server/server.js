@@ -24,8 +24,13 @@ if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
 }
 
+// Load all routes
+const allUserRouter = require('./routes/user.route');
 
 
+
+// User routes
+app.use('/api/user',cors(),allUserRouter);
 
 
 
