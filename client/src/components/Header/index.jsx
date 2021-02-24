@@ -2,11 +2,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import './header.scss';
 import { Container, Row, Col } from 'reactstrap';
 import { Link, NavLink } from "react-router-dom";
-
+import cookie from 'js-cookie';
+import Login from '../../features/Register_Login/login';
 
 function Header(props) {
 
     const [showHeader, setShowHeader] = useState(false);
+    const [popoverCart, setPopoverCart] = useState(false);
+    const [popoverUser, setPopoverUser] = useState(false);
+    const [isReload, setIsReload] = useState(false);
 
     const handleShowHeader = () => {
     // Nếu kéo qua vị trí 0 thì hiển thị header
@@ -26,11 +30,35 @@ function Header(props) {
     },[showHeader]);
 
 
+    // Bật form LOGIN/REGISTER/FORGET
+    const [modalLogin, setModalLogin] = useState(false);
+    const [modalRegister, setModalRegister] = useState(false);
+    const [modalForget, setModalForget] = useState(false);
+
+    const toggleLoginForm = () => {
+        setModalLogin(!modalLogin);
+        console.log("Login",modalLogin);
+    }
+    const toggleRegisterForm = () => {
+        setModalRegister(!modalRegister);
+        console.log("Register",modalRegister);
+    }
+    const toggleForgetForm = () => {
+        setModalForget(!modalForget);
+        console.log("Forget",modalForget);
+    }
+
+    // Bật popover USER
+    const toggleUser = (e) => {
+        setPopoverUser(!popoverUser);
+    }
+
     // Bật popover CART
     const toggleCart = (e) => {
         // console.log(e.target.parentElement.id);
         //setPopoverCart(!popoverCart);
     }
+
 
     return (
         <header id="header" className={showHeader ? "dark-bg" : "transparent-bg"}>
@@ -158,38 +186,32 @@ function Header(props) {
                                         </a>
                                     </form>
                                 </li>
-                                {/* {cookie.get('token') ? 
+                                {cookie.get('token') ? 
                                     null :  
                                     <li>
-                                    <a onClick={toggleLoginForm}>
-                                        <img src="/Assets/images/enter.png">
-                                        </img>
-                                    </a>
-                                    <Login
-                                        isOpen={modalLogin}
-                                        toggleLoginForm={toggleLoginForm}
-                                        toggleRegisterForm={toggleRegisterForm}
-                                        toggleForgetForm={toggleForgetForm}
-                                    />
-                                    <Register
-                                        isOpen={modalRegister}
-                                        toggleLoginForm={toggleLoginForm}
-                                        toggleRegisterForm={toggleRegisterForm}
-                                    />
-                                    <Forget
-                                        isOpen={modalForget}
-                                        toggleLoginForm={toggleLoginForm}
-                                        toggleForgetForm={toggleForgetForm}
-                                    />
-                                </li>
-                                } */}
-                                <li>
-                                    <a href="https://www.youtube.com/">
-                                        <img src="/Assets/images/like.png" alt="">
-                                        </img>
-                                    </a>
-                                    <span className="count">0</span>
-                                </li>
+                                        <a onClick={toggleLoginForm}>
+                                            <img src="/Assets/images/user.png">
+                                            </img>
+                                        </a>
+                                        <Login
+                                            isOpen={modalLogin}
+                                            toggleLoginForm={toggleLoginForm}
+                                            toggleRegisterForm={toggleRegisterForm}
+                                            toggleForgetForm={toggleForgetForm}
+                                        />
+                                        {/* <Register
+                                            isOpen={modalRegister}
+                                            toggleLoginForm={toggleLoginForm}
+                                            toggleRegisterForm={toggleRegisterForm}
+                                        />
+                                        <Forget
+                                            isOpen={modalForget}
+                                            toggleLoginForm={toggleLoginForm}
+                                            toggleForgetForm={toggleForgetForm}
+                                        /> */}
+                                    </li>
+                                }
+
                                 <li>
                                     <a href="https://www.youtube.com/">
                                         <img src="/Assets/images/like.png" alt="">
