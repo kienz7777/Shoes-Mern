@@ -67,3 +67,83 @@
     background-color: #000;
     color: #fff;
 }
+.btn-login{
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    margin: 0 5px;
+    width: 30%;
+
+    @include maxWidth(576px){
+        font-size: 15px;
+        width: 27%;
+    }
+}
+.btn-google{
+    outline: none;
+    border: none;
+    background-color: #DD4B39;
+    transition: all 0.3s;
+}
+.btn-facebook{
+    outline: none;
+    border: none;
+    background-color: #3B5998;
+    transition: all 0.3s;
+}
+.btn-twitter{
+    outline: none;
+    border: none;
+    background-color:#55acee;
+    transition: all 0.3s;
+}
+.btn-google:hover{
+    background-color: #c02915;
+    color: #fff;
+}
+.btn-facebook:hover{
+    background-color: #133275;
+    color: #fff;
+}
+.btn-twitter:hover{
+    background-color:#1073be;
+    color: #fff;
+}
+
+.btn-sign-in{
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    background-color: rgb(255, 94, 0);;
+    border: 1px solid rgb(255, 94, 0);;
+    line-height: 50px;
+    border-radius: 30px;
+    transition: all 0.3s;
+
+    @include maxWidth(576px){
+        font-size: 15px;
+        line-height: 40px;
+    }
+}
+.btn-sign-in:hover{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: rgb(255, 94, 0);
+}
+.btn-edit, .btn-checkout{
+    width: 48%!important;
+    color: #fff;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid #fff;
+    transition: background-color 0.9s;
+}
+.btn-checkout{
+    float: right;
+}
+.btn-edit:hover, .btn-checkout:hover{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: rgb(255, 94, 0);
+}

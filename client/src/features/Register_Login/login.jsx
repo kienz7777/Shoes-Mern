@@ -182,7 +182,8 @@ function Login(props) {
                                             <span className="error-message">&nbsp;</span>
                                         </div>
                                     </div>
-                                    <div className="row-forgot">
+
+                                    <div className="login-modal-content-row-forgot">
                                         <div className="remember">
                                             <input type="checkbox"/>
                                             <label>Remember me</label>
@@ -198,7 +199,7 @@ function Login(props) {
                                     <button type="submit" className='btn-register btn-default btn-sign-in'>
                                             SIGN IN
                                     </button>
-                                    <div className="else">
+                                    <div className="login-modal-content-else">
                                         <label>Not a member?</label>
                                         <a onClick={toggleRegisterForm}>Sign Up</a>
                                     </div>
