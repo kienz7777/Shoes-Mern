@@ -3,6 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Container, Row, Col } from 'reactstrap';
 import { Modal } from 'reactstrap';
 import 'react-toastify/dist/ReactToastify.css'
+import './register_login.scss';
 
 function Register(props) {
 

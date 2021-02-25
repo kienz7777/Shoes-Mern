@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import cookie from 'js-cookie';
 import Login from '../../features/Register_Login/login';
 import Register from '../../features/Register_Login/register';
+import Forget from '../../features/Register_Login/forget';
 
 function Header(props) {
 
@@ -205,11 +206,11 @@ function Header(props) {
                                             toggleLoginForm={toggleLoginForm}
                                             toggleRegisterForm={toggleRegisterForm}
                                         />
-                                        {/* <Forget
+                                        <Forget
                                             isOpen={modalForget}
                                             toggleLoginForm={toggleLoginForm}
                                             toggleForgetForm={toggleForgetForm}
-                                        /> */}
+                                        />
                                     </li>
                                 }
 
