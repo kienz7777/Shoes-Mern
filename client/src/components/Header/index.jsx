@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'reactstrap';
 import { Link, NavLink } from "react-router-dom";
 import cookie from 'js-cookie';
 import Login from '../../features/Register_Login/login';
+import Register from '../../features/Register_Login/register';
 
 function Header(props) {
 
@@ -199,12 +200,12 @@ function Header(props) {
                                             toggleRegisterForm={toggleRegisterForm}
                                             toggleForgetForm={toggleForgetForm}
                                         />
-                                        {/* <Register
+                                        <Register
                                             isOpen={modalRegister}
                                             toggleLoginForm={toggleLoginForm}
                                             toggleRegisterForm={toggleRegisterForm}
                                         />
-                                        <Forget
+                                        {/* <Forget
                                             isOpen={modalForget}
                                             toggleLoginForm={toggleLoginForm}
                                             toggleForgetForm={toggleForgetForm}
