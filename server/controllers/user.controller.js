@@ -79,3 +79,115 @@ module.exports.registerController = (req,res) =>{
         })
     }
 }
+
+module.exports.activationController = (req,res) => {
+
+    const {token} = req.body; //client gửi qua axios post
+
+    if(token){
+        // Verify the token is valid or not , or expired
+        jwt.verify(token, process.env.JWT_ACCOUNT_ACTIVATION, (err,decoded) => {
+            if(err){
+                console.log('Activation error');
+                return res.status(402).json({
+                    errors: 'Expired link. Signup again'
+                });
+            }
+
+            else{
+                // If valid save to database
+                // Get name, email, password from token
+                const {name,address,phone, email, password} = jwt.decode(token);
+                
+                const user = new User({
+                    name,
+                    address,
+                    phone,
+                    email,
+                    password
+                });
+          
+                // save vào mongodb thì sẽ thêm 1 collection có tên là :(tên Schema + s), như User thì -> users ; và sẽ thêm trg _id cho collection đó
+                user.save((err,user) => {
+                    if(err){
+                        return res.status(401).json({
+                            errors: err
+                        })
+                    }else{
+                        return res.json({
+                            success: true,
+                            message: 'Signup success',
+                            user
+                        });
+                    }
+                })
+                
+            }
+        })
+    }
+    else {
+        return res.json({
+          message: 'error happening please try again'
+        });
+    }
+
+}
+
+module.exports.loginController = (req,res) => {
+
+    const { email, password } = req.body;
+    const error = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        const firstError = errors.array().map(error => error.msg)[0];
+        return res.status(422).json({
+          errors: firstError
+        });
+    } 
+    else{
+        // check if user exist
+        User.findOne({
+            email
+        }).exec((err,user) => {
+            if (err || !user) {
+                return res.status(400).json({
+                  errors: 'User with that email does not exist. Please signup'
+                });
+            }
+
+            // authenticate of Schema
+            if (!user.authenticate(password)) {
+                return res.status(400).json({
+                errors: 'Email and password do not match'
+                });
+            }
+
+            // generate a token for login, and send to client
+            const token = jwt.sign(
+                {
+                    _id: user._id
+                },
+                process.env.JWT_SECRET,
+                {
+                    expiresIn: '7d' // token valid in 7d, you can set remember me in front and set it for 30d
+                }
+                
+            )
+
+            const { _id, name,address,phone, email, role } = user;
+
+            return res.json({
+                token,
+                user: {
+                  _id,
+                  name,
+                  address,
+                  phone,
+                  email,
+                  role
+                }
+            });
+        })
+    }
+}
+
