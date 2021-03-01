@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css'
 //import axiosClient from '../../api/axiosClient';
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+import axiosClient from '../../api/axiosClient';
 
 
 function Login(props) {
@@ -47,6 +48,12 @@ function Login(props) {
     // Handle submit data
     function handleSubmit(event){
         event.preventDefault();
+
+        if (email && password){
+            setFormData({ ...formData, textChange: 'Submitting' });
+
+
+        }
     }
 
     /// If success we need to authenticate user and redirect
@@ -60,46 +67,46 @@ function Login(props) {
 
     //// Send google token
     function sendGoogleToken(tokenId){
-        // axiosClient
-        //     .post('user/googlelogin', {
-        //         idToken: tokenId
-        //     })
-        //     .then(res => {
-        //         console.log(res.data);
-        //             informParent(res);
-        //         })
-        //     .catch(error => {
-        //         console.log('GOOGLE SIGNIN ERROR', error.response);
-        //     });
+        axiosClient
+            .post('user/googlelogin', {
+                idToken: tokenId
+            })
+            .then(res => {
+                console.log(res.data);
+                    informParent(res);
+                })
+            .catch(error => {
+                console.log('GOOGLE SIGNIN ERROR', error.response);
+            });
     }
     
     // Get response from Google
     const responseGoogle = (response) => {
-        // console.log(response);
-        // sendGoogleToken(response.tokenId);  // Google provide
+        console.log(response);
+        sendGoogleToken(response.tokenId);  // Google provide
             
     };
 
     //// Send Facebook token
     function sendFacebookToken(userID, accessToken){
-        // axiosClient
-        //     .post('user/facebooklogin', {
-        //         userID,
-        //         accessToken
-        //     })
-        //     .then(res => {
-        //         console.log(res.data);
-        //         informParent(res);
-        //     })
-        //     .catch(error => {
-        //         console.log('GOOGLE SIGNIN ERROR', error.response);
-        //     });
+        axiosClient
+            .post('user/facebooklogin', {
+                userID,
+                accessToken
+            })
+            .then(res => {
+                console.log(res.data);
+                informParent(res);
+            })
+            .catch(error => {
+                console.log('GOOGLE SIGNIN ERROR', error.response);
+            });
     }
 
     // Get response from Facebook
     const responseFacebook = (response) => {
-        // console.log(response);
-        // sendFacebookToken(response.userID, response.accessToken)
+        console.log(response);
+        sendFacebookToken(response.userID, response.accessToken)
     };
 
     return (
