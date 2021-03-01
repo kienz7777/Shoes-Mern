@@ -6,5 +6,6 @@ const controller = require('../controllers/user.controller');
 // Load controller
 router.post('/register',controller.registerController);
 
+
 module.exports = router;
 
