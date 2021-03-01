@@ -3,7 +3,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Container, Row, Col } from 'reactstrap';
 import { Modal } from 'reactstrap';
 import 'react-toastify/dist/ReactToastify.css'
+import axios from 'axios';
 import './register_login.scss';
+import axiosClient from '../../api/axiosClient';
 
 function Register(props) {
 
@@ -37,6 +39,54 @@ function Register(props) {
     // Handle submit data
     function handleSubmit(event){
         event.preventDefault();
+
+        if (name && address && phone && email && password1){
+            if (password1 === password2){
+                setFormData({ ...formData, textChange: 'Submitting' });
+                
+                axiosClient
+                    .post('/user/register',{
+                        name,
+                        address,
+                        phone,
+                        email,
+                        password: password1
+                    })// Theo flow từ client -> server, post để gọi server sau đó then,catch để lấy message,errors từ server
+                    .then(res => {
+                        setFormData({
+                            ...formData,
+                            name: '',
+                            address:'',
+                            phone:'',
+                            email: '',
+                            password1: '',
+                            password2: '',
+                            textChange: 'Submitted'
+                        });
+
+                        toast.success(res.data.message);
+                    })
+                    .catch(err => {
+                        setFormData({
+                        ...formData,
+                        name: '',
+                        address:'',
+                        phone:'',
+                        email: '',
+                        password1: '',
+                        password2: '',
+                        textChange: 'Sign Up'
+                        });
+                        toast.error(err.response.data.errors);
+                    });
+            }
+            else{
+                toast.error("Passwords don't matches");
+            }
+        }
+        else{
+            toast.error('Please fill all fields');
+        }
     }
 
     return (

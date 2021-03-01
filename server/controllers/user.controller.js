@@ -492,7 +492,7 @@ module.exports.changePasswordController = (req,res) => {
         });
     }  
     else{
-        
+
         User.findOne({
             _id
           }).exec((err,user) => {
