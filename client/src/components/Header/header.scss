@@ -276,7 +276,58 @@ nav.desk-menu{
                 }
             }
 
+            /*-------------- POPUPOVER USER -------------*/
+            & .user{
+                position: relative;
 
+                &-popover{
+                    width: 250px;
+                    right: 0px;
+                    top: 44px;
+                    background-color: #fff;
+                    position: absolute;
+                    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.2), inset 0 0 0 1px #ffffff;
+                
+                    &-content{
+                        padding: 30px;
+
+                        & h6{
+                            border-bottom: 1px solid #ccc;
+                            padding-bottom: 10px;
+                            align-items: flex-start;
+                            display: flex;
+                        }
+
+                        & .link{
+                            margin-left: 30px;
+                            font-size: 90%;
+
+                            & a{
+                                padding: 5px 0;
+                                width: 100%;
+                                color: inherit;
+                                align-items: flex-start;
+                                display: flex;
+                                text-decoration: none;
+
+                                & i{
+                                    margin-right: 10px;
+                                }
+                            }
+                            & a:hover{
+                                color: rgb(255, 94, 0);
+                            }
+                        }
+                    }
+                }
+
+                &-image{
+                    border-radius: 50%;
+                    width: 125%;
+                    border: 2px solid #fff;
+                }
+
+            }
         }
     }
 
