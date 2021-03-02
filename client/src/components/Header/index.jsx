@@ -6,8 +6,11 @@ import cookie from 'js-cookie';
 import Login from '../../features/Register_Login/login';
 import Register from '../../features/Register_Login/register';
 import Forget from '../../features/Register_Login/forget';
+import { signout } from '../../helpers/auth';
 
 function Header(props) {
+    // REtrieve user from localStorage
+    const user = JSON.parse(localStorage.getItem('user'));
 
     const [showHeader, setShowHeader] = useState(false);
     const [popoverCart, setPopoverCart] = useState(false);
@@ -55,10 +58,40 @@ function Header(props) {
         setPopoverUser(!popoverUser);
     }
 
+    // Ref CLICK OUTSIDE
+    const wrapperRef = useRef(null);
+    useOutsideAlerter(wrapperRef);
+
+    function useOutsideAlerter(ref) {
+        useEffect(() => {
+            /**
+             * Alert if clicked on outside of element
+             */
+            function handleClickOutside(event) {
+                if (ref.current && !ref.current.contains(event.target)) {
+                    setPopoverCart(false);
+                    setPopoverUser(false);
+                }
+            }
+    
+            // Bind the event listener
+            document.addEventListener("mousedown", handleClickOutside);
+            return () => {
+                // Unbind the event listener on clean up
+                document.removeEventListener("mousedown", handleClickOutside);
+            };
+        }, [ref]);
+    }
+
     // Bật popover CART
     const toggleCart = (e) => {
         // console.log(e.target.parentElement.id);
-        //setPopoverCart(!popoverCart);
+        setPopoverCart(!popoverCart);
+    }
+
+    const logout = () => {
+        signout();
+        setIsReload(!isReload);
     }
 
 
@@ -238,7 +271,7 @@ function Header(props) {
                                         0
                                     </span>
                                 </li>
-                                {/* {cookie.get('token') ? 
+                                {cookie.get('token') ? 
                                     <li>
                                         <div className="user">
                                             <a  id="user-icon" onClick={toggleUser}>
@@ -246,8 +279,8 @@ function Header(props) {
                                                 </img> 
                                             </a>
                                             {popoverUser ? 
-                                            <div ref={wrapperRef} className="popover-user">
-                                                <div className="content">
+                                            <div ref={wrapperRef} className="user-popover">
+                                                <div className="user-popover-content">
                                                     <h6>My account</h6>
                                                     <div className="link">
                                                         <Link to="/profile"><i className="fa fa-cog"></i>Profile</Link>
@@ -259,7 +292,7 @@ function Header(props) {
                                             : null}
                                         </div>
                                     </li> 
-                                : null}  */}
+                                : null} 
                                 
                             </ul>
                         </nav>
