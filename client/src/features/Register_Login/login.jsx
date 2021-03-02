@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Modal } from 'reactstrap';
 import './register_login.scss';
 import {Link, useHistory} from 'react-router-dom';
-//import { authenticate, isAuth } from '../../helpers/auth';
+import { authenticate, isAuth } from '../../helpers/auth';
 import { Container, Row, Col } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-//import axiosClient from '../../api/axiosClient';
+import axiosClient from '../../api/axiosClient';
 import { GoogleLogin } from 'react-google-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-import axiosClient from '../../api/axiosClient';
+
 
 
 function Login(props) {
@@ -52,17 +52,56 @@ function Login(props) {
         if (email && password){
             setFormData({ ...formData, textChange: 'Submitting' });
 
+            axiosClient
+                .post('/user/login',{
+                    email,
+                    password: password,
+                })
+                .then(res => {
+                    authenticate(res,() => {    // middleware authenticate must be next() to pass To ,() => {...}
+                        console.log(res.data.user);
+                        setFormData({
+                            ...formData,
+                            email: '',
+                            password: '',
+                            textChange: 'Submitted'
+                        });
 
+                        //toast.success("Sign In Successfully");
+
+                        // Because have isAuth() so Login will render : Redirect to='/'
+                        // Want to render another link . Purpose is authorization
+                        // props.history.push to Redirect link
+                        isAuth() && isAuth().role === 'admin'
+                        ? history.push('/admin')
+                        : history.push('/')
+
+                        console.log(isAuth());
+                        toast.success(`Hey ${res.data.user.name}, Welcome back!`);
+                    });
+                })
+                .catch(err => {
+                    setFormData({
+                        ...formData,
+                        email: '',
+                        password: '',
+                        textChange: 'Sign In'
+                    });
+                    toast.error(err.response.data.errors);
+                });
+        }
+        else{
+            toast.error('Please fill all fields');
         }
     }
 
     /// If success we need to authenticate user and redirect
     const informParent = (response) => {
-        // authenticate(response, () => {
-        //     isAuth() && isAuth().role === 'admin'
-        //     ? history.push('/admin')
-        //     : history.push('/');
-        // });
+        authenticate(response, () => {
+            isAuth() && isAuth().role === 'admin'
+            ? history.push('/admin')
+            : history.push('/');
+        });
     };
 
     //// Send google token

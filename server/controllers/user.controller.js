@@ -137,7 +137,7 @@ module.exports.activationController = (req,res) => {
 module.exports.loginController = (req,res) => {
 
     const { email, password } = req.body;
-    const error = validationResult(req);
+    const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
         const firstError = errors.array().map(error => error.msg)[0];
