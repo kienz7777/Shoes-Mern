@@ -22,7 +22,7 @@ const cartSchema = mongoose.Schema({
         required: true
     },
     idUser:{
-        type: String
+        type: String        // No need "ref" because It will get data user when user login
     }
 },{timestamps: true})
 

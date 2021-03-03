@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const historySchema = new mongoose.Schema({
     idUser:{
         type:Schema.Types.ObjectId,
-        ref: 'User'               //  ref được sử dụng để cho Mongoose biết rằng trường này được join đến model nào
+        ref: 'User'               //  ref is used for Mongoose knows the model field is joined to
     },
     idProduct: {
         type: Schema.Types.ObjectId,
