@@ -30,7 +30,7 @@ const productShema = new mongoose.Schema(
             required: true,
             type:Boolean
         },
-        colorProducts:[colorProductSchema]      //  Subdocument : nest document
+        colorProducts:[colorProductSchema]      //  Subdocument : nest document; when you add ColorProduct(with field product(ColorProduct) === _id(Product)) then ColorProduct inside here
     },{timestamps:true});
 
 module.exports = mongoose.model('Product', productShema);
