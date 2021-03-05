@@ -130,3 +130,15 @@ module.exports.updateProduct = (req, res) => {
         }
     )
 }
+
+// Delete product by ID
+module.exports.deleteProduct = (req, res) =>{
+    Product.findByIdAndUpdate(
+        {_id : req.query.id},
+        { active : false},
+        (err, data)=>{
+            if (err) return res.send(err);
+            res.status(200).send(data);
+        }
+    )
+}
