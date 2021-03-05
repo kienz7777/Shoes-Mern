@@ -20,3 +20,26 @@ module.exports.getAllCategories = (req, res) => {
         res.status(200).send(categories);
     })
 }
+
+// Update category -- findbyidandupdate(id, brand)
+module.exports.updateCategory = (req, res) => {
+    Category.findByIdAndUpdate(
+        {_id : req.query.id},
+        { $set: req.body},
+        (err,data)=>{
+        if (err) return res.send(err);
+        res.status(200).send(data);
+    })
+}
+
+// Delete category 
+module.exports.deleteCategory = (req, res) => {
+    Category.findByIdAndUpdate(
+        {_id : req.query.id},
+        {active : false},
+        (err,data)=>{
+            if (err) return res.send(err);
+            res.status(200).send(data);
+        }
+    )
+}
