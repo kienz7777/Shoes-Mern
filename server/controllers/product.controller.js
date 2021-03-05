@@ -117,3 +117,16 @@ module.exports.getAllProductsByArrival = (req, res) => {
         res.status(200).send({data});
     })
 }
+
+// Update product by ID
+module.exports.updateProduct = (req, res) => {
+
+    Product.findByIdAndUpdate(
+        {_id : req.query.id},
+        { $set : req.body},
+        (err, data)=>{
+            if (err) return res.send(err);
+            res.status(200).send(data);
+        }
+    )
+}
