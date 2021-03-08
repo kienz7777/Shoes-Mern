@@ -1,10 +1,10 @@
 const Product = require("../models/product.model");
 
 // Add new product
-module.exports.addProduct = async (req,res) => {
+module.exports.addProduct = async (req, res) => {
 
     try {
-        // Create a new product
+        // Create new product
         const product = new Product(req.body);
         // Save
         product.save((err,doc) => {
@@ -15,24 +15,33 @@ module.exports.addProduct = async (req,res) => {
             })
         })
 
+        // res.json(req.body);
     } catch (error) {
-        console.log(error);
+        console.log(err);
     }
 }
 
 // Get 1 product 
 // api/product/get?id=A
-module.exports.getSingleProduct = (req,res) => {
+module.exports.getSingleProduct = (req, res) => {
 
     Product.find(
-        {_id: req.query.id}
+        {_id : req.query.id}
     ).
     populate('category').
-    populate({
+    populate('colorProducts').
+    populate({ 
         path: 'colorProducts',
         populate: {
-            path: 'color'
-        }
+          path: 'color'
+        } 
+    }).
+    populate({ 
+        path: 'review',
+        populate: {
+            path: 'user',
+            select: {'name':1}
+          }
     }).
     populate({ 
         path: 'colorProducts',
@@ -43,17 +52,11 @@ module.exports.getSingleProduct = (req,res) => {
           }
         } 
     }).
-    populate({ 
-        path: 'review',
-        populate: {
-            path: 'user',
-            select: {'name':1}          // only choose name
-          }
-    }).
-    exec((err,data) => {
+    exec((err, data)=>{
         if (err) return res.send(err);
-        res.status(200).send({data});       // send or json are ok 
-    })
+        res.status(200).send({data});
+    });
+    
 }
 
 // Get all products by ARRIVAL
@@ -141,4 +144,43 @@ module.exports.deleteProduct = (req, res) =>{
             res.status(200).send(data);
         }
     )
+}
+
+// UpdateQty 
+module.exports.updateQty = (req, res) => {
+    Product.find(
+        {"_id" : req.body.idProduct}
+    ).
+    exec((err, data)=>{
+        {
+            if (data){
+                data.forEach(function(doc){
+                    doc.colorProducts.forEach( function(doc2) {
+                        if (doc2._id == req.body.idColorProduct){
+                            doc2.sizeProducts.forEach(function(doc3){
+                                if (doc3._id == req.body.idSize){
+                                    doc3.quantity = doc3.quantity - req.body.quantity;
+                                }
+                                else{
+                                    return;
+                                    // return res.status(200).json({msg:"Can not find size product"})
+                                }
+                            })
+                        }
+                        else{
+                            return;
+                            // return res.status(200).json({msg:"Can not find color product"})
+                        }
+                        doc.save((err,doc)=>{
+                            if (doc) return res.status(200).json({msg: "Updated!", data:doc})
+                            if(err) return res.json({success: false, err})
+                        })
+                    });
+                });
+            
+            }
+            if (err) return res.status(200).json({msg:"Failed"})
+            
+        }
+    })
 }
