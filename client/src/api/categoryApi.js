@@ -1,10 +1,10 @@
-import axiosClient from './axiosClient';
+import axiosClient from "./axiosClient";
 
 const categoryApi = {
-    getAll : () => {
+    getAll: () => {
         const url = '/category/get';
         return axiosClient.get(url);
     }
 }
 
-export default categoryApi
+export default categoryApi;
