@@ -147,6 +147,23 @@ function Main(props) {
         })
     }
 
+    function clearAll(){
+        setAttribute({
+            "category":[],
+            "colorProducts.color":[],
+            "colorProducts.price":[],
+        });
+        const filters = {
+            "category": [],
+            "colorProducts.color":[],
+            "colorProducts.price": []
+        };
+        setParams({
+            ...params,
+            filters: filters
+        });
+    }
+
     return (
         <div>
             <Breadcrumbs
@@ -169,7 +186,35 @@ function Main(props) {
                                 <div className="content">
                                     <div className="content-list">
                                         <div className="content-list-filter-attribute">
+                                            {
+                                                attribute['category'].map((item,key) => (
+                                                    <div className="att" key={key}>
+                                                        <div className="att-item">
+                                                            {item.name}
+                                                        </div>
+                                                        <div onClick={() => clearAtt(item,'category')} className="clear">
+                                                            <img src="/Assets/images/cancel.png"></img>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            }
 
+                                            {
+                                                attribute['colorProducts.color'].map((item, key) => (
+                                                    <div className="att" key={key}>
+                                                        <div className="att-item">
+                                                            {item.name}
+                                                        </div>
+                                                        <div onClick={() => clearAtt(item, 'colorProducts.color')} className="clear">
+                                                            <img src="/Assets/images/cancel.png"></img>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            }
+
+                                            <div onClick={()=>clearAll()} className="clear-all">
+                                                Clear all
+                                            </div>
                                         </div>
 
                                         <div className="content-list-filter-category">

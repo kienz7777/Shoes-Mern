@@ -27,6 +27,43 @@
                 // &-filter-attribute{
 
                 // }
+                &-filter-attribute{
+
+                    & .att{
+                        display: flex;
+                        align-items: center;
+                        padding: 5px 0px;
+                        cursor: pointer;
+
+                        & .att-item{
+                            width: 93%;
+                            font-weight: 500;
+                            color: rgb(255, 94, 0);
+                        }
+
+                        & .clear{
+                            width: 15px;
+                            height: 15px;
+                            border: 2px #888888 solid;
+                            position: relative;
+
+                            & img{
+                                display: inline-block;
+                                width: 100%;
+                                height: 100%;
+                                position: absolute;
+                            }
+                        }
+                    }
+
+                    & .clear-all{
+                        float: right;
+                        font-size: 14px;
+                        color: #0094de;
+                        font-weight: 500;
+                        cursor: pointer;
+                    }
+                }
 
                 &-filter-category{
                     padding-bottom: 15px;
