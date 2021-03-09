@@ -1,0 +1,215 @@
+
+.layer-navigation{
+    margin-top: 30px;
+    border: 1px#e1e1e1 solid;
+
+    &-panel{
+        padding: 25px 20px;
+
+        & .heading{
+            margin-bottom: 40px;
+
+            & h3{
+                font-size: 25px;
+                padding-bottom: 15px;
+                border-bottom: 1px solid #e1e1e1;
+            }
+        }
+
+        & .content{
+
+            &-list{
+
+                // & h4{
+
+                // }
+
+                // &-filter-attribute{
+
+                // }
+                &-filter-attribute{
+
+                    & .att{
+                        display: flex;
+                        align-items: center;
+                        padding: 5px 0px;
+                        cursor: pointer;
+
+                        & .att-item{
+                            width: 93%;
+                            font-weight: 500;
+                            color: rgb(255, 94, 0);
+                        }
+
+                        & .clear{
+                            width: 15px;
+                            height: 15px;
+                            border: 2px #888888 solid;
+                            position: relative;
+
+                            & img{
+                                display: inline-block;
+                                width: 100%;
+                                height: 100%;
+                                position: absolute;
+                            }
+                        }
+                    }
+
+                    & .clear-all{
+                        float: right;
+                        font-size: 14px;
+                        color: #0094de;
+                        font-weight: 500;
+                        cursor: pointer;
+                    }
+                }
+
+                &-filter-category{
+                    padding-bottom: 15px;
+                    border-bottom: 1px solid #e1e1e1;
+                    padding-top: 15px;
+
+                    & h4{
+                        font-size: 20px;
+                        margin-bottom: 25px;
+                    }
+
+                    &-list-item{
+
+                        & .filter{
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 15px;
+                            cursor: pointer;
+                            font-weight: 500;
+                            color: #444;
+                            transition: 0.4s;
+
+                            &::before{
+                                content: "";
+                                width: 17px;
+                                height: 17px;
+                                border: 1px solid #444;
+                                border-radius: 3px;
+                                box-shadow: inset 0 0 0 1px #ffffff;
+
+                            }
+
+                            &:hover{
+                                color: rgb(255, 94, 0);
+
+                                &::before{
+                                    background-color:rgb(255, 94, 0);
+                                    border-color: rgb(255, 94, 0);
+                                }
+                            }
+
+                            & .item{
+                                padding-left: 10px;
+                            }
+                        }
+                    }
+                }
+
+                &-filter-price{
+                    padding-bottom: 15px;
+                    border-bottom: 1px solid #e1e1e1;
+                    padding-top: 15px;
+                    padding-bottom: 50px;
+
+                    & h4{
+                        font-size: 20px;
+                        margin-bottom: 25px;
+                        
+                    }
+                    // &-list-item{
+
+                    // }
+                }
+
+                &-filter-color{
+                    padding-bottom: 15px;
+                    border-bottom: 1px solid #e1e1e1;
+                    padding-top: 15px;
+
+                    & h4{
+                        font-size: 20px;
+                        margin-bottom: 25px;
+                    }
+
+                    &-item-colors{
+                        padding: 8px 0;
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+
+                        & span.color{
+                            width: 28px;
+                            height: 28px;
+                            display: flex;
+                            justify-content: center;
+                            margin-bottom: 30px;
+                            border-radius: 50%;
+                            margin-right: 25px;
+                            cursor: pointer;
+                            transition: 0.5s;
+                            border: 1px solid #e0e0e0;
+
+                            & p{
+                                padding-top: 25px;
+                                text-align: center;
+                                font-family: 'Poppins', sans-serif!important;
+                                font-weight: 400;
+                                color: #444;
+                                font-size: 13px;
+                            }
+                        }
+
+                        & span.color[color="blue"]{
+                            background-color: #2175f5;                        
+                        }
+
+                        & span.color[color="white"]{
+                            background-color: #ffffff;                         
+                        }
+
+                        & span.color[color="red"]{
+                            background-color: #f84848;                           
+                        }
+
+                        & span.color[color="green"]{
+                            background-color: #29b864;                          
+                        }
+
+                        & span.color[color="orange"]{
+                            background-color: #ff5521;                          
+                        }
+
+                        & span.color[color="black"]{
+                            background-color: #444;  
+                        }
+
+                        & span.color[color="yellow"]{
+                            background-color: #fbc531;                   
+                        }
+
+                        & span.color[color="pink"]{
+                            background-color: #ff9ff3;                        
+                        }
+
+                        & span.color[color="gray"]{
+                            background-color: #576574;
+                        }
+
+                        & span.color[color="mix"]{
+                            background-color: #c2eaba;
+                            background-image: linear-gradient(319deg, #c2eaba 0%, #c5f4e0 37%, #efc2cf 100%);
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
