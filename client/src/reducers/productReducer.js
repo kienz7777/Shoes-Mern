@@ -1,13 +1,14 @@
 
+
 const InitialState = {
     productList: [],  
     loading: true,  
     error: '' 
 }
 
-const productReducer = (state = InitialState, action) => {
+const productReducer =  (state = InitialState, action) => {
     switch (action.type) {
-        case 'OnSuccess':
+        case 'OnSuccess':  
             // const newList = [];
             // newList.push(action.payload);
             return {  
@@ -23,6 +24,7 @@ const productReducer = (state = InitialState, action) => {
                 productList: {},  
                 error: 'Something went wrong'  
             } 
+
         default:
             return state
     }

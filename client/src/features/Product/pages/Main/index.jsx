@@ -44,6 +44,60 @@ function Main(props) {
         }
     });
 
+    const productList = useSelector(state => state.product.productList.data);
+    const loading = useSelector(state => state.product.loading);
+
+    const [totalRecords, setTotalRecords] = useState(100);
+    const [currentPage,setCurrentPage] = useState(1);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+
+        const fetchProductList = async () =>{
+            try {
+                let response;
+                // Xử lý avatar qua response
+                if (params["filters"]["colorProducts.color"].length > 0){
+                    response = await productApi.getAll(params);
+
+                    // for qua product
+                    for (let i = 0; i < response.data.data.length; i++){
+                        // for qua color product trong mỗi product
+                        for (let j = 0; j < response.data.data[i].colorProducts.length; j++){
+                            // for màu trong param
+                            for (let k = 0; k < params["filters"]["colorProducts.color"].length; k++){
+                                // nếu màu trong param == màu trong color product thì đổi avatar = true
+                                if (params["filters"]["colorProducts.color"][k] 
+                                    == response.data.data[i].colorProducts[j].color._id){
+
+                                        console.log("dd");
+                                        response.data.data[i].colorProducts[j].avatar = true;
+                                }
+                                else{
+                                    response.data.data[i].colorProducts[j].avatar = false;
+                                }
+                            }
+                            
+                        }
+                    }
+
+                    console.log(response.data.data);
+                                      
+                }
+                else{
+                    response = await productApi.getAll(params);
+                }
+
+                await dispatch({ type: 'OnSuccess', payload: response.data })
+                //console.log(response.data);            
+            } catch (error) {
+                console.log('Failed to fetch product list: ', error);
+            }
+        }
+
+        fetchProductList();
+    }, [params]);
+
 
     useEffect(() => {
         const fetchCategory = async () => {
@@ -163,60 +217,14 @@ function Main(props) {
             filters: filters
         });
     }
+    // useEffect(() => {
+    //     setParams({
+    //         ...params,
+    //         skip: (currentPage-1)*9
+    //     })
+    // },[currentPage])
 
-    const productList = useSelector(state => state.product.productList.data);
-    const loading = useSelector(state => state.product.loading);
-
-    const [totalRecords, setTotalRecords] = useState(100);
-    const [currentPage,setCurrentPage] = useState(1);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-
-        const fetchProductList = async () =>{
-            try {
-                let response;
-                // Xử lý avatar qua response
-                if (params["filters"]["colorProducts.color"].length > 0){
-                    response = await productApi.getAll(params);
-
-                    // for qua product
-                    for (let i = 0; i < response.data.data.length; i++){
-                        // for qua color product trong mỗi product
-                        for (let j = 0; j < response.data.data[i].colorProducts.length; j++){
-                            // for màu trong param
-                            for (let k = 0; k < params["filters"]["colorProducts.color"].length; k++){
-                                // nếu màu trong param == màu trong color product thì đổi avatar = true
-                                if (params["filters"]["colorProducts.color"][k] 
-                                    == response.data.data[i].colorProducts[j].color._id){
-
-                                        console.log("dd");
-                                        response.data.data[i].colorProducts[j].avatar = true;
-                                }
-                                else{
-                                    response.data.data[i].colorProducts[j].avatar = false;
-                                }
-                            }
-                            
-                        }
-                    }
-
-                    console.log(response.data.data);
-                                      
-                }
-                else{
-                    response = await productApi.getAll(params);
-                }
-
-                await dispatch({ type: 'OnSuccess', payload: response.data })
-                //console.log(response.data);            
-            } catch (error) {
-                console.log('Failed to fetch product list: ', error);
-            }
-        }
-
-        fetchProductList();
-    }, [params]);
+    console.log(productList);
 
     return (
         <div>
@@ -409,6 +417,16 @@ function Main(props) {
 
                                 </Row>
                             </div>
+
+                            <div className="d-flex flex-row py-4 justify-content-end">
+                                <Pagination
+                                    totalRecords={totalRecords}
+                                    pageLimit={pageLimit}
+                                    pageRangeDisplayed={1}
+                                    onChangePage={setCurrentPage}
+                                />
+                            </div>
+
                         </div>
                     </Col>
                 </Row>

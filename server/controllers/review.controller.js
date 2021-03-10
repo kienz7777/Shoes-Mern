@@ -24,7 +24,7 @@ module.exports.addReview = (req,res) => {
         }
     })
 }
-
+ 
 // Get all reviews by productID
 module.exports.getAllReviewsByProductID = (req, res) => {
     Review.find({product: req.query._id}).
