@@ -16,8 +16,8 @@ const productShema = new mongoose.Schema(
             maxlength:10000
         },
         category:{
-            type: Schema.Types.ObjectId, // only one flied id is joined
-            ref: 'Category',      //  ref is used for Mongoose knows the model field is joined to   
+            type: Schema.Types.ObjectId,
+            ref: 'Category',
             required: true
         },
         review:[
@@ -30,7 +30,12 @@ const productShema = new mongoose.Schema(
             required: true,
             type:Boolean
         },
-        colorProducts:[colorProductSchema]      //  Subdocument : nest document; when you add ColorProduct(with field product(ColorProduct) === _id(Product)) then ColorProduct inside here
+        colorProducts:[colorProductSchema]
     },{timestamps:true});
 
 module.exports = mongoose.model('Product', productShema);
+
+
+// only one flied id is joined
+//  ref is used for Mongoose knows the model field is joined to
+//  Subdocument : nest document; when you add ColorProduct(with field product(ColorProduct) === _id(Product)) then ColorProduct inside here   

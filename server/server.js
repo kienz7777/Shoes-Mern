@@ -31,8 +31,12 @@ const allSizeRouter = require('./routes/size.route');
 const allCategoryRouter = require('./routes/category.route');
 const allProductRouter = require('./routes/product.route');
 const allColorProductRouter = require('./routes/color_product');
+const allReviewRouter = require('./routes/review.route');
 const allSizeProductRouter = require('./routes/size_product');
+//const allCartRouter = require('./routes/cart.route');
 const allSearchRouter = require('./routes/search.route');
+const allHistoryRouter = require('./routes/history.route');
+//const allOrderRouter = require('./routes/order.route');
 
 
 
@@ -48,10 +52,18 @@ app.use('/api/category',cors(),allCategoryRouter);
 app.use('/api/product',cors(),allProductRouter);
 // Color product routes
 app.use('/api/colorProduct',cors(),allColorProductRouter);
+// Review routes
+app.use('/api/review',cors(),allReviewRouter);
 // Size_product routes
 app.use('/api/sizeProduct',cors(),allSizeProductRouter);
+// Cart routes
+//app.use('/api/cart',cors(),allCartRouter);
 // Search routes
 app.use('/api/search',cors(),allSearchRouter);
+// History routes
+app.use('/api/history',cors(),allHistoryRouter);
+// Order routes
+//app.use('/api/order',cors(),allOrderRouter);
 
 
 app.use((req, res) => {

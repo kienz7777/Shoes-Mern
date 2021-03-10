@@ -1,0 +1,38 @@
+.main-star{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-total{
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        &-item{
+            width: 16px;
+            height: 16px;
+            position: relative;
+            margin-right: 5px;
+            & i.be{
+                position: absolute;
+                display: inline-block;
+                margin-left: 4%;
+                width: 100%;
+                height: 100%;
+            }
+
+            & span.star-up{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+
+                & i.up{
+                    position: absolute;
+                    display: inline-block;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+}
+
