@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import BackToTop from './components/BackToTop';
+import {Provider} from 'react-redux';
+import store from './store';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store = {store}>
     <App />
-    <BackToTop />
-  </React.StrictMode>,
+    <BackToTop/>
+  </Provider>,
   document.getElementById('root')
 );
 

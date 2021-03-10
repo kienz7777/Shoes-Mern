@@ -164,6 +164,60 @@ function Main(props) {
         });
     }
 
+    const productList = useSelector(state => state.product.productList.data);
+    const loading = useSelector(state => state.product.loading);
+
+    const [totalRecords, setTotalRecords] = useState(100);
+    const [currentPage,setCurrentPage] = useState(1);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+
+        const fetchProductList = async () =>{
+            try {
+                let response;
+                // Xử lý avatar qua response
+                if (params["filters"]["colorProducts.color"].length > 0){
+                    response = await productApi.getAll(params);
+
+                    // for qua product
+                    for (let i = 0; i < response.data.data.length; i++){
+                        // for qua color product trong mỗi product
+                        for (let j = 0; j < response.data.data[i].colorProducts.length; j++){
+                            // for màu trong param
+                            for (let k = 0; k < params["filters"]["colorProducts.color"].length; k++){
+                                // nếu màu trong param == màu trong color product thì đổi avatar = true
+                                if (params["filters"]["colorProducts.color"][k] 
+                                    == response.data.data[i].colorProducts[j].color._id){
+
+                                        console.log("dd");
+                                        response.data.data[i].colorProducts[j].avatar = true;
+                                }
+                                else{
+                                    response.data.data[i].colorProducts[j].avatar = false;
+                                }
+                            }
+                            
+                        }
+                    }
+
+                    console.log(response.data.data);
+                                      
+                }
+                else{
+                    response = await productApi.getAll(params);
+                }
+
+                await dispatch({ type: 'OnSuccess', payload: response.data })
+                //console.log(response.data);            
+            } catch (error) {
+                console.log('Failed to fetch product list: ', error);
+            }
+        }
+
+        fetchProductList();
+    }, [params]);
+
     return (
         <div>
             <Breadcrumbs
@@ -277,6 +331,83 @@ function Main(props) {
                                     </div>
                                 </div>
 
+                            </div>
+                        </div>
+                    </Col>
+
+                    <Col sm="12" md="3">
+                        <div className="main-product">
+                            <div className="main-product-toolbar">
+                                <div className="main-product-toolbar-modes">
+                                    <i className="fa fa-th" aria-hidden="true"></i>
+                                    <i className="fa fa-th-list" aria-hidden="true"></i>
+                                </div>
+
+                                <div className="main-product-toolbar-amount">
+
+                                </div>
+
+                                <div className="main-product-toolbar-sort">
+                                    <span>Sort By:</span>
+                                    <div className="dropdown drop-product">
+                                        <button className="btn btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Dropdown
+                                        </button>
+                                        <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <button className="dropdown-item" type="button">Action</button>
+                                            <button className="dropdown-item" type="button">Another action</button>
+                                            <button className="dropdown-item" type="button">Something else here</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="main-product-list">
+                                <Row>
+                                    {
+                                    loading ? ( <Spinner className="loading" color="primary" /> ) :( productList.map((data,key) =>(
+                                            <Col key={key} md="4">
+                                                <CardV2
+                                                    productId = {data._id}
+                                                    productName = {data.name}
+                                                    productCategory = {data.category.name}
+                                                    productColorProductId = {(typeof(data.colorProducts[0]) != 'undefined' ) ? 
+                                                    (
+                                                        data.colorProducts[( data.colorProducts.map(item => item.avatar).indexOf(true) ) == -1 ? 0 : data.colorProducts.map(item => item.avatar).indexOf(true)]._id
+                                                    ) 
+                                                    : null}
+                                                    productImage = {(typeof(data.colorProducts[0]) != 'undefined' ) ? 
+                                                    (
+                                                        data.colorProducts[( data.colorProducts.map(item => item.avatar).indexOf(true) ) == -1 ? 0 : data.colorProducts.map(item => item.avatar).indexOf(true)].images[0]
+                                                    ) 
+                                                    : null}
+
+                                                    productPrice = {(typeof(data.colorProducts[0]) != 'undefined' ) ? 
+                                                    (
+                                                        data.colorProducts[( data.colorProducts.map(item => item.avatar).indexOf(true) ) == -1 ? 0 : data.colorProducts.map(item => item.avatar).indexOf(true)].price
+                                                    ) 
+                                                    : null}
+
+                                                    numberStar={(typeof(data.review[0]) != 'undefined' ) ? 
+                                                    (
+
+                                                        data.review.reduce((accumulator, currentValue, currentIndex,array) =>
+                                                            accumulator + currentValue.rating/array.length
+                                                        ,0)
+                                                        
+                                                    ) 
+                                                    : 0}
+
+                                                    // Tất cả hình của product
+                                                    allProductImages = {data.colorProducts}
+                                                    
+                                                />
+                                            </Col>
+                                        )))
+                                    }
+
+
+                                </Row>
                             </div>
                         </div>
                     </Col>
