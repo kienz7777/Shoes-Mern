@@ -227,7 +227,8 @@ function Main(props) {
     console.log(productList);
 
     return (
-        <div>
+        <div className="products">
+            <Header/>
             <Breadcrumbs
                 title="Product"
                 linkBack="Home"
@@ -343,38 +344,45 @@ function Main(props) {
                         </div>
                     </Col>
 
-                    <Col sm="12" md="3">
+                    <Col sm="12" md="9">
                         <div className="main-product">
-                            <div className="main-product-toolbar">
-                                <div className="main-product-toolbar-modes">
-                                    <i className="fa fa-th" aria-hidden="true"></i>
-                                    <i className="fa fa-th-list" aria-hidden="true"></i>
-                                </div>
+                            
+                                <Row>
+                                    <Col sm="12">
+                                        <div className="main-product-toolbar">
+                                            <div className="main-product-toolbar-modes">
+                                                <i className="fa fa-th" aria-hidden="true"></i>
+                                                <i className="fa fa-th-list" aria-hidden="true"></i>
+                                            </div>
 
-                                <div className="main-product-toolbar-amount">
+                                            <div className="main-product-toolbar-amount">
+                                                Total {productList ? productList.length : null} products
+                                            </div>
 
-                                </div>
-
-                                <div className="main-product-toolbar-sort">
-                                    <span>Sort By:</span>
-                                    <div className="dropdown drop-product">
-                                        <button className="btn btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Dropdown
-                                        </button>
-                                        <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <button className="dropdown-item" type="button">Action</button>
-                                            <button className="dropdown-item" type="button">Another action</button>
-                                            <button className="dropdown-item" type="button">Something else here</button>
+                                            <div className="main-product-toolbar-sort">
+                                                <span>Sort By:</span>
+                                                <div className="dropdown drop-product">
+                                                    <button className="btn btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Dropdown
+                                                    </button>
+                                                    <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                        <button className="dropdown-item" type="button">Action</button>
+                                                        <button className="dropdown-item" type="button">Another action</button>
+                                                        <button className="dropdown-item" type="button">Something else here</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
+                                        
+                                    </Col>
+                                </Row>
+                           
 
                             <div className="main-product-list">
                                 <Row>
                                     {
                                     loading ? ( <Spinner className="loading" color="primary" /> ) :( productList.map((data,key) =>(
-                                            <Col key={key} md="4">
+                                            <Col key={key} md="4" xs="6">
                                                 <CardV2
                                                     productId = {data._id}
                                                     productName = {data.name}

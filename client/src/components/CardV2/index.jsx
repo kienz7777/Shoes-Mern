@@ -101,7 +101,9 @@ function CardV2(props) {
                         <Star numberStar={numberStar} />
                     </div>
                     <Link to='' className="product-name">
-                        {productName.length > 25 ? productName.slice(0, 25).concat('...') : productName}
+                        <h5>
+                        {productName.length >= 25 ? productName.slice(0, 20).concat('...') : productName}
+                        </h5>
                     </Link>
                     <div className="price-box">
                         <p className="new">${productPrice}</p>
