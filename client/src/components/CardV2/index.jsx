@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './cardV2.scss'
+import './cardv2.scss'
 import Star from '../Star';
 import {
     NavLink,Link
