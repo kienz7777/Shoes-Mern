@@ -1,0 +1,44 @@
+.product-detail-review{
+    width: 100%;
+    margin-top: 6rem;
+}
+
+.title-review{
+    width: 100%;
+    display: flex;
+}
+.title-review h2{
+    font-size: 35px;
+    margin-right: 3rem;
+}
+
+.number-star{
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.star-review{
+    padding: 10px 0px;
+}
+
+.user-info{
+    display: flex;
+}
+
+.avatar-user{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: blue;
+}
+.avatar-user img{
+    width: 100%;
+}
+.name-user{
+    margin: auto 5px;
+}
+.date{
+    float: right;
+}
